@@ -12,10 +12,11 @@ export class VideoView {
      * @private
      */
     private handleVideoView() {
-        const vp = getElementTag("videoPlayer");
+        const vp= getElementTag("videoPlayer");
         const fb = getElementTag("fullScreen");
         vp.addEventListener("timeupdate", () => this.onTimeUpdate(vp));
         fb.addEventListener("click", () => fullScreenSwitch("portrait-primary"));
+        document.addEventListener("click", () => (vp as HTMLVideoElement).muted = false);
     }
 
     /***
