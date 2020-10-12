@@ -1,5 +1,12 @@
 import * as fs from "fs";
 
+/***
+ * Get the chunk size from the range request header to provide chunk video data as a response.
+ * @param range
+ * @param fileSize
+ * @param res
+ * @param assetPath
+ */
 export function getRangedChunks(range, fileSize, res, assetPath) {
     const parts = range.replace(/bytes=/, "").split("-")
     const start = parseInt(parts[0], 10)

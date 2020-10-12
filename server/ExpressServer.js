@@ -14,6 +14,10 @@ class ExpressServer {
         this.currTime = currTime;
         this.startServer();
     }
+    /***
+     * Start the server and put the desired middlewares on it.
+     * @private
+     */
     startServer() {
         this.applyMiddleWares();
         this.makeIOConnection();
@@ -21,6 +25,10 @@ class ExpressServer {
             console.log(`listening on ${PORT}`);
         });
     }
+    /***
+     * Applies middlewares.
+     * @private
+     */
     applyMiddleWares() {
         this.app.use(this.express.static(path.join(__dirname, '../public')));
         this.app.get('/', function (req, res) {
@@ -46,6 +54,10 @@ class ExpressServer {
             }
         });
     }
+    /***
+     * Making a socket.io connection to make the server updated with currentTime of the video.
+     * @private
+     */
     makeIOConnection() {
         this.io.on("connection", (socket) => {
             console.log("a user just connected");
@@ -57,6 +69,11 @@ class ExpressServer {
             });
         });
     }
+    /***
+     * Updating the currTime as the video playback processes.
+     * @param currentTime
+     * @private
+     */
     onGetCurrentTime(currentTime) {
         this.currTime = currentTime;
     }
