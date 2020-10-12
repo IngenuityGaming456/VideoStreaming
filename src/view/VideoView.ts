@@ -1,3 +1,5 @@
+import {getElementTag, fullScreenSwitch} from "../utils";
+
 export class VideoView {
     private eventsObj
     public constructor(eventsObj) {
@@ -6,9 +8,10 @@ export class VideoView {
     }
 
     private handleVideoView() {
-        const vp: any = document.getElementById("videoPlayer");
-        vp.play();
+        const vp: any = getElementTag("videoPlayer");
+        const fb: any = getElementTag("fullScreen");
         vp.addEventListener("timeupdate", () => this.onTimeUpdate(vp));
+        fb.addEventListener("click", () => fullScreenSwitch("portrait-primary", "landscape"));
     }
 
     private onTimeUpdate(vp) {
@@ -17,7 +20,6 @@ export class VideoView {
 
     public onCurrentTimeUpdated(currentTime) {
         const vp: any = document.getElementById("videoPlayer");
-        const sp: any = document.getElementById("")
         vp.currentTime = currentTime;
     }
 }

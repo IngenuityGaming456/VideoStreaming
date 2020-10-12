@@ -1,0 +1,9 @@
+#fullScreen {
+    position: relative;
+    background-color: #595b5b;
+    box-shadow: inset 0 1px #737373;
+    border: 1px solid #333434;
+    border-radius: 4px;
+    color: #c6c8c8;
+    cursor: pointer;
+}
