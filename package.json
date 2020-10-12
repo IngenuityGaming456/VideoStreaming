@@ -3,7 +3,7 @@
   "description": "Video Streaming",
   "main": "server/server.ts",
   "scripts": {
-    "start": "nodemon server/server.ts",
+    "start": "nodemon server/server.js",
     "build": "webpack --config webpack.config.js -d"
   },
   "dependencies": {

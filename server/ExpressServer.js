@@ -26,7 +26,7 @@ class ExpressServer {
             res.sendFile(path.join(__dirname, '../index.htm'));
         });
         this.app.get('/video', function (req, res) {
-            const assetPath = '../assets/sample.mp4';
+            const assetPath = path.join(__dirname, '../assets/sample.mp4');
             const stat = fs.statSync(assetPath);
             const fileSize = stat.size;
             const range = req.headers.range;

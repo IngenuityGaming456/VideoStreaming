@@ -1,6 +1,7 @@
 import * as path from "path";
 import * as fs from "fs";
 import {getRangedChunks} from "./utils";
+const PORT = process.env.PORT || 3000;
 
 export class ExpressServer {
     private express;
@@ -21,10 +22,8 @@ export class ExpressServer {
     private startServer() {
         this.applyMiddleWares();
         this.makeIOConnection();
-
-
-        this.http.listen(3000, () => {
-            console.log("listening on 3000");
+        this.http.listen(PORT, () => {
+            console.log(`listening on ${PORT}`);
         })
     }
 
@@ -36,7 +35,7 @@ export class ExpressServer {
         })
 
         this.app.get('/video', function(req, res) {
-            const assetPath = '../assets/sample.mp4';
+            const assetPath = path.join(__dirname, '../assets/sample.mp4');
             const stat = fs.statSync(assetPath);
             const fileSize = stat.size;
             const range = req.headers.range;
