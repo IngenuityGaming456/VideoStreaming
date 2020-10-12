@@ -4,6 +4,7 @@ exports.ExpressServer = void 0;
 const path = require("path");
 const fs = require("fs");
 const utils_1 = require("./utils");
+const PORT = process.env.PORT || 3000;
 class ExpressServer {
     constructor(express, app, http, io, currTime) {
         this.express = express;
@@ -16,8 +17,8 @@ class ExpressServer {
     startServer() {
         this.applyMiddleWares();
         this.makeIOConnection();
-        this.http.listen(3000, () => {
-            console.log("listening on 3000");
+        this.http.listen(PORT, () => {
+            console.log(`listening on ${PORT}`);
         });
     }
     applyMiddleWares() {
