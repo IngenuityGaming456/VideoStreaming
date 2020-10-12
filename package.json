@@ -1,0 +1,25 @@
+{
+  "name": "videostream",
+  "description": "Video Streaming",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "build": "webpack --config webpack.config.js -d"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.20",
+    "@types/fluent-ffmpeg": "^2.1.16",
+    "@types/node": "^12.7.3",
+    "awesome-typescript-loader": "^5.2.1",
+    "express": "^4.15.3",
+    "fluent-ffmpeg": "^2.1.2",
+    "get-video-duration": "^3.0.2",
+    "nodemon": "^2.0.4",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.1",
+    "typescript": "^3.6.2",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
+  }
+}
